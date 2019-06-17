@@ -4,7 +4,7 @@ class TabLink {
      this.tabElement = tabElement;
     
     // Get the `data-tab` value from this.tabElement and store it here
-    this.tabData = this.tabElement.dataset.dataTab;
+    this.tabData = this.tabElement.dataset.tab;
 
     
     
@@ -17,7 +17,7 @@ class TabLink {
       this.cards = document.querySelectorAll('.card');
     } else {
       // else if `all` is false, only select the cards with matching this.tabData values
-       this.cards = document.querySelector(".card[data-tab = 'this.tabData']");
+       this.cards = document.querySelectorAll(`.card[data-tab='${this.tabData}']`);
     }
    
 
@@ -43,7 +43,7 @@ class TabLink {
 
     // Iterate through the NodeList setting the display style each one to 'none'
      cards.forEach(tabElement => {
-       tabElement.getElementsByClassName.display = "none";
+       tabElement.style.display = "none";
      })
     
     // Add a class of ".active-tab" to this.tabElement
@@ -57,11 +57,11 @@ class TabLink {
 class TabCard {
   constructor(cardElement){
     // Assign this.cardElement to the cardElement DOM reference
-    // this.cardElement;
+     this.cardElement = cardElement;
   }
   selectCard(){
     // Update the style of this.cardElement to display = "flex"
-    // this.cardElement;
+     this.cardElement.style.display = 'flex';
   }
 
 }
