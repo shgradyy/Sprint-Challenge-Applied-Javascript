@@ -20,5 +20,8 @@ function Header() {
     headerEl.appendChild(dateEl);
     headerEl.appendChild(titleEl);
     headerEl.appendChild(temperatureEl);
-    return;
-}
+    return headerEl;
+};
+
+const headCont = document.querySelector('.header-container');
+headCont.appendChild(Header(headCont));
