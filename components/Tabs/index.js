@@ -11,5 +11,16 @@
 const tabEl = document.querySelector('.topics');
 
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
-   .then(console.log(console))
-   .catch(console.log(console));
+   .then(dataSet => {
+       tabEl.appendChild(tabComp(dataSet.data))
+   })
+   .catch(err => {
+       console.log('There is an error', err)
+   });
+
+   function tabComp(data){
+       const tab = document.createElement('div');
+       tab.classList.add('tab');
+       tab.textContent = data.topics;
+       return tab;
+   }
